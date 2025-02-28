@@ -1,0 +1,150 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
+/* Ocultar contenido al inicio */
+.hidden {
+    display: none;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* ---------------------- Estilos para la pantalla de bienvenida ----------------*/
+/* ----------------------------------------------------------------------------- */
+
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    z-index: 999;
+    background: url('../img/bienvenida1.jpg') center/cover no-repeat;
+}
+
+/* Oscurecimiento de fondo */
+.welcome-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+    z-index: -1;
+}
+
+/* Logo de bienvenida */
+.welcome-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+/* Ocultar footer hasta que se presione "Comenzar" */
+footer {
+    display: none;
+}
+
+/* Animaciones de bienvenida */
+.welcome-logo, .welcome-content h2, .welcome-content p, #startBtn {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-logo {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.welcome-content h2 {
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+}
+
+.welcome-content p {
+    animation: fadeIn 0.8s ease-out 1s forwards;
+}
+
+/* Animación para el botón */
+@keyframes materializar {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#startBtn {
+    animation: materializar 0.5s ease-out 1.5s forwards;
+}
+
+/* Animación de salida de la bienvenida */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------- Contenido Principal --------------------------- */
+/* ----------------------------------------------------------------------------- */
+
+main {
+    min-height: 100vh;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Footer adherido */
+footer.fixed-bottom {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    height: auto;
+    padding: 10px 0;
+    max-width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Evitar desbordes */
+* {
+    box-sizing: border-box;
+}

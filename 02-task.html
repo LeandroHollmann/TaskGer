@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskGer - Modificar Estado de Tareas</title>
+    <link rel="icon" type="image/png" href="public/img/TaskGer-Logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Menú -->
+    <header class="bg-light p-3">
+        <button class="btn btn-outline-dark" onclick="window.location.href='01-index.html'">← Volver al Inicio</button>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container mt-4">
+        <h2 class="text-center">Crear o Modificar Tareas</h2>
+
+        <!-- Menú de selección para decidir acción -->
+        <div class="mb-3">
+            <label for="accionSelect" class="form-label">¿Qué desea hacer?</label>
+            <select class="form-select" id="accionSelect">
+                <option value="crear">Crear nueva tarea</option>
+                <option value="modificar">Modificar tarea existente</option>
+            </select>
+        </div>
+
+        <!-- Formulario de tarea -->
+        <div id="formularioTarea" class="mt-4">
+            <form id="tareaForm">
+                <!-- Campo oculto para almacenar el ID de la tarea -->
+                <input type="hidden" id="tareaId">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Ingrese el título de la tarea" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" rows="3" placeholder="Ingrese la descripción de la tarea" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select class="form-select" id="estado">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en progreso">En progreso</option>
+                        <option value="finalizado">Finalizado</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar tarea</button>
+            </form>
+        </div>
+
+        <div id="tareasExistentes" class="mt-3 text-center text-muted">
+            Tareas existentes (0)
+        </div>
+
+        <!-- Lista de tareas -->
+        <div id="listaTareas" class="mt-4"></div>
+
+        <!-- Botones para guardar/cancelar -->
+        <!-- <div class="d-flex justify-content-center mt-4">
+            <button id="guardarCambios" class="btn btn-primary me-2">Guardar cambios</button>
+            <button id="cancelarCambios" class="btn btn-secondary">Cancelar</button>
+        </div> -->
+    </main>
+
+    <footer class="bg-light text-center py-3 fixed-bottom">
+        <p class="mb-0">TaskGer &copy; 2024 - Todos los derechos reservados</p>
+        <div class="mt-2 d-flex justify-content-center align-items-center">
+            <a href="about.html" class="mx-2">Sobre nosotros</a>
+            <span>|</span>
+            <a href="support.html" class="mx-2">Soporte al usuario</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/leandro-hollmann-b47207306/" target="_blank" class="mx-2 d-flex align-items-center">
+                <img src="public/img/linkedin-logo.png" alt="LinkedIn" class="me-1" width="16" height="16">
+                LinkedIn
+            </a>
+            <span>|</span>
+            <a href="https://github.com/leandrohollmann" target="_blank" class="mx-2 d-flex align-items-center">
+                <img src="public/img/github-logo.png" alt="GitHub" class="me-1" width="16" height="16">
+                GitHub
+            </a>
+        </div>
+    </footer>
+
+    <script src="./public/js/app.js"></script>
+    <script src="./public/js/task.js"></script>
+    
+</body>
+</html>
